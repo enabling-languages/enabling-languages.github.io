@@ -450,9 +450,15 @@ a:hover {
 header {
   padding-top: 40px;
   padding-bottom: 40px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: 'Gentium Plus','Gentium Basic', 'Helvetica Neue', Helvetica, Arial, serif;
   background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x;
   border-bottom: solid 1px #275da1;
+}
+
+#eloslogo {
+  padding-top:5px;
+  float:left;
+  width: 180px;
 }
 
 header h1 {
@@ -521,7 +527,7 @@ a.button {
   height: 58px;
   padding-top: 22px;
   padding-left: 68px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: 'Gentium Plus', 'Gentium Basic', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: 23px;
   line-height: 1.2;
   color: #fff;
@@ -614,7 +620,7 @@ form {
 #main-content h1 {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: 'Gentium Plus', 'Gentium Basic', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: 2.8em;
   font-weight: normal;
   color: #474747;
@@ -631,7 +637,7 @@ form {
 
 #main-content h2 {
   margin-bottom: 8px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: 'Gentium Plus', 'Gentium Basic', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: 22px;
   font-weight: bold;
   color: #474747;
@@ -647,7 +653,7 @@ form {
 #main-content h3 {
   margin-top: 24px;
   margin-bottom: 8px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: 'Gentium Plus', 'Gentium Basic', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: 18px;
   font-weight: bold;
   color: #474747;
@@ -663,7 +669,7 @@ form {
 
 #main-content h4 {
   margin-bottom: 8px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: 'Gentium Plus', 'Gentium Basic', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: 15px;
   font-weight: bold;
   color: #474747;
@@ -679,7 +685,7 @@ h4:before {
 
 #main-content h5 {
   margin-bottom: 8px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: 'Gentium Plus', 'Gentium Basic', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: 14px;
   color: #474747;
   text-indent: 3px;
@@ -693,7 +699,7 @@ h5:before {
 
 #main-content h6 {
   margin-bottom: 8px;
-  font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+  font-family: 'Gentium Plus', 'Gentium Basic', 'Helvetica Neue', Helvetica, Arial, serif;
   font-size: .8em;
   color: #474747;
   text-indent: 3px;
@@ -781,6 +787,9 @@ footer a:hover {
   .inner {
     width: 740px;
   }
+  #eloslogo {
+    display: none;
+  }
   header h1, header h2 {
     width: 340px;
   }
@@ -814,13 +823,21 @@ footer a:hover {
     padding: 20px 0;
   }
   header .inner {
-    position: relative;
+    /* position: relative; */
+  }
+  #eloslogo {
+    display: none;
   }
   header h1, header h2 {
-    width: 100%;
+    /*width: 100%;*/
+
   }
+
   header h1 {
     font-size: 48px;
+    float:left;
+    width: 38%;
+    overflow: hidden;
   }
   header h2 {
     font-size: 24px;
@@ -874,8 +891,31 @@ footer a:hover {
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-@media only screen and (min-width: 480px) and (max-width: 767px) { }
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  header .inner {
+    height: 100px;
+  }
+
+  header h1, header h2 {
+    width: 80%;
+  }
+}
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-@media only screen and (max-width: 479px) { }
+@media only screen and (max-width: 479px) {
+
+  header .inner {
+    height: 110px;
+  }
+
+  header h1, header h2 {
+    width: 80%;
+    line-height: 1.2em;
+  }
+
+  header a.button {
+    display: none;
+    line-height: 1.2em;
+  }
+}
 
