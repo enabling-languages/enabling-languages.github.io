@@ -3,23 +3,16 @@
 
 	<head>
 		<meta charset="utf-8">
-
 		<title>Multilingual Information Online – deploying community language content</title>
-
 		<meta name="description" content="An introduction to deploying community language content for VIC government digital teams">
 		<meta name="author" content="Andrew Cunningham">
-
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/el.css">
-
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
-
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -28,14 +21,11 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
-
 	<body>
-
 		<div class="reveal">
 
 			<!-- Any section element inside of this container is displayed as a slide -->
@@ -56,6 +46,7 @@
 						<li>Introduction to the guidelines</li>
 						<li>Web internationalisation basics</li>
 						<li>Strategies</li>
+						<li>Forensics</li>
 					</ol>
 				</section>
 
@@ -65,7 +56,12 @@
 						<p>Government departments and agencies have a responsability to ensure people with limited English, and people who are Deaf or hard of hearing, are given information in their own language to participate in decisions that affect their lives.</p>
 					</blockquote>
 				</section>
-
+				<section>
+					<h2>Context</h2>
+					<p>Internationalisation is about the architecture of a site, in the first instance, then secondly about the markup and styling. It is not about content per se.</p>
+					<p>A small handful of sites tarheting a foreign audience may localise their sites and translate most, if not all, their content.</p>
+					<p>This is not the norm. Most agencies and departments carefully select languages and content.</p>
+				</section>
 				<section>
 					<section>
 						<h2>Overview</h2>
@@ -106,14 +102,13 @@
 						The essential techniques (<em>declaring an encoding</em>, <em>identifying language and change of language</em> and <em>bidirectional markup</em>) were introduced in HTML 4.0, published on December 18, 1997.
 					</p>
 					<p>
-						An early <a href="https://web.archive.org/web/19991012213756/http://library.maribyrnong.vic.gov.au:80/utf8/welcome.htm">multilingual example</a> within the vic.gov.au domain from 1999.
+						An early <a target="_blank" href="https://web.archive.org/web/19991012213756/http://library.maribyrnong.vic.gov.au:80/utf8/welcome.htm">multilingual example</a> within the vic.gov.au domain from 1999.
 					</p>
 					<!--
 						* https://www.w3.org/TR/REC-html40-971218/struct/dirlang.html
 						* https://www.w3.org/TR/REC-html40-971218/charset.html
 					-->
 				</section>
-
 
 				<section>
 					<section>
@@ -179,11 +174,16 @@
 				<section>
 					<section>
 						<h2>Language tagging</h2>
-
-						<!--
-						https://www.w3.org/International/questions/qa-choosing-language-tags
-						https://www.w3.org/International/articles/language-tags/
-						-->
+						<p>The <code class="html">lang</code> global attribute indicates the language of the element's text. The attribute contains a entry value in the format defined in the Tags for Identifying Languages (BCP47) IETF document.</p>
+						<p>Language tagging is required in order to provide good internationalisation, accessibility and discoverability.</p>
+						<aside class="notes">
+							<p>WCAG 2.0 Success Criterion 3.1.1 &ndash; the default human language of each Web page can be programmatically determined. (Level A)</p>
+							<p>WCAG 2.0 Success Criterion 3.1.2 &ndash; the human language of each passage or phrase in the content can be programmatically determined except for proper names, technical terms, words of indeterminate language, and words or phrases that have become part of the vernacular of the immediately surrounding text. (Level AA) </p>
+							<ul>
+								<li><a target="_blank" href="https://www.w3.org/International/questions/qa-choosing-language-tags">Choosing a Language Tag</a></li>
+								<li><a target="_blank" href="https://www.w3.org/International/articles/language-tags/">Language tags in HTML and XML</a></li>
+							</ul>
+						</aside>
 					</section>
 					<section>
 						<h2>The anatomy of a language tag</h2>
@@ -216,8 +216,8 @@
 					<section>
 						<h2>Tools</h2>
 						<ol>
-							<li><a href="http://www.iana.org/assignments/language-subtag-registry">IANA Language Subtag Registry</a></li>
-							<li><a href="https://r12a.github.io/app-subtags/">Language subtag lookup</a></li>
+							<li><a target="_blank" href="http://www.iana.org/assignments/language-subtag-registry">IANA Language Subtag Registry</a></li>
+							<li><a  target="_blank"href="https://r12a.github.io/app-subtags/">Language subtag lookup</a></li>
 						</ol>
 
 					</section>
@@ -228,10 +228,41 @@
 <pre><code class="html">&lt;html lang="din"&gt;
 	&#x22EE;
 &lt;/html&gt;
-</code></pre>
+				</code></pre>
+				<p>This works best if the site is localised, or the CMS tracks the language of unique content and of the UI, and the templates inject a <code class="codefragment html">lang</code> attribute value as required.</p>
+				</section>
+				<section>
+					<h2>A work around</h2>
+					<p>Setting the document language on the <code class="codefragment html">html</code> is required to meet WCAG 2.0 Success Criteria 3.1.1. But this may not be possible on an existing website, a hack would be to wrap the unique content in a <code class="codefragment html">div</code> and apply the <code class="codefragment html">lang</code> attribute. But this does not clearly identify the language of the document.</p>
+					<pre><code class="html" data-trim contenteditable>
+&lt;html lang="en-AU"&gt;
+&lt;head&gt;
+&#x22EE;
+&lt;/head&gt;
+&lt;body&gt;
+&#x22EE;
+&lt;div id="translatedContent" lang="din"&gt;
+&#x22EE;
+&lt;/div&gt;
+&#x22EE;
+&lt;/body&gt;
+&lt;html&gt;
+					</code></pre>
 					</section>
 
-
+					<section>
+						<h2>Marking up a change in language</h2>
+						<p>English terminology may be included within a translation. It is necessary to appropriately markup language when the langauge of text changes. This is a requirement of WCAG 2.0 Success Crteria 3.1.2.</p>
+						<pre><code class="html" data-trim contenteditable>
+&lt;div id="translatedContent" lang="ar" dir="rtl"&gt;
+		&lt;p&gt;the title is &lt;cite dir="rtl"&gt;مدخل إلى C++&amp;lrm;&lt;/cite&gt;&lt;/p&gt;
+&lt;/div&gt;
+						</code></pre>
+						<aside class="notes">
+							<ul>
+								<li><a target="_blank" href="https://www.w3.org/International/articles/inline-bidi-markup/">Inline markup and bidirectional text in HTML</a></li>
+								<li><a target="_blank" href="https://www.w3.org/International/questions/qa-html-dir">Structural markup and right-to-left text in HTML</a></li>
+					</section>
 
 
 					<section>
@@ -271,11 +302,11 @@
 
 					<aside class="notes">
 						<ul>
-							<li><a href="http://localfonts.eu/cyrillic-local-forms/">Cyrillic Local Forms</a></li>
-							<li><a href="http://typedrawers.com/discussion/2211/macedonian-italic-gje-localization">Macedonian italic /gje localization</a></li>
-							<li><a href="https://en.wikipedia.org/wiki/Serbian_Cyrillic_alphabet#Differences_from_other_Cyrillic_alphabets">Serbian Cyrillic alphabet: Differences from other Cyrillic alphabets</a></li>
-							<li><a href="https://en.wikipedia.org/wiki/Macedonian_alphabet#Cursive_alphabet">Macedonian alphabet: Cursive alphabet</a></li>
-							<li><a href="http://www.fontsmith.com/blog/2016/10/12/cyrillic-script-variations-and-the-importance-of-localisation">Cyrillic script variations and the importance of localisation</a></li>
+							<li><a target="_blank" href="http://localfonts.eu/cyrillic-local-forms/">Cyrillic Local Forms</a></li>
+							<li><a target="_blank" href="http://typedrawers.com/discussion/2211/macedonian-italic-gje-localization">Macedonian italic /gje localization</a></li>
+							<li><a target="_blank" href="https://en.wikipedia.org/wiki/Serbian_Cyrillic_alphabet#Differences_from_other_Cyrillic_alphabets">Serbian Cyrillic alphabet: Differences from other Cyrillic alphabets</a></li>
+							<li><a target="_blank" href="https://en.wikipedia.org/wiki/Macedonian_alphabet#Cursive_alphabet">Macedonian alphabet: Cursive alphabet</a></li>
+							<li><a target="_blank" href="http://www.fontsmith.com/blog/2016/10/12/cyrillic-script-variations-and-the-importance-of-localisation">Cyrillic script variations and the importance of localisation</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -304,7 +335,7 @@
     &#x22EE;
 &lt;html&gt;
 						</code></pre>
-						<p>This works best if site is localised, or the CMS tracks the language of unique content and of the UI and the templates inject <code class="codefragment html">lang</code> and <code class="codefragment html">dir</code> attribute values as required.
+						<p>This works best if site is localised, or the CMS tracks the direction of unique content and of the UI, and the templates inject a <code class="codefragment html">dir</code> attribute value as required.</p>
 					</section>
 					<section>
 						<h2>A work around</h2>
@@ -335,8 +366,8 @@
 						</code></pre>
 						<aside class="notes">
 							<ul>
-								<li><a href="https://www.w3.org/International/articles/inline-bidi-markup/">Inline markup and bidirectional text in HTML</a></li>
-								<li><a href="https://www.w3.org/International/questions/qa-html-dir">Structural markup and right-to-left text in HTML</a></li>
+								<li><a target="_blank" href="https://www.w3.org/International/articles/inline-bidi-markup/">Inline markup and bidirectional text in HTML</a></li>
+								<li><a target="_blank" href="https://www.w3.org/International/questions/qa-html-dir">Structural markup and right-to-left text in HTML</a></li>
 					</section>
 
 				</section>
@@ -347,7 +378,45 @@
 
 
 				<section data-background="#4d7e65">
-					<h2>Language specific web typography</h2>
+					<section>
+						<h2>Language specific web typography</h2>
+						<p>Default styling of HTML elements is based on the typographic and typesetting ocnventions of Western Europe. These may not be suitable for all the languages do deal with.</p>
+					</section>
+					<section>
+						<h2>Language-related pseudo-classes and attribute selectors</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>&nbsp;</th>
+									<th>Psuedo class selector</th>
+									<th>Attribute selector</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Language</td>
+									<td>:lang(ar)</td>
+									<td>[lang="ar"]</td>
+								</tr>
+								<tr>
+									<td>Direction</td>
+									<td style="color: rgba(255, 255, 255, 0.2)">:dir(rtl)</td>
+									<td>[dir="rtl"]</td>
+								</tr>
+							</tbody>
+						</table>
+						<aside class="notes">
+							<h2>Javascript equivalents:</h2>
+							<p>The <code class="jsfragment">HTMLElement.lang</code> property gets or sets the base language of an element's attribute values and text content. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/lang">MDN.</a></p>
+
+							<p>The <code class="jsfragment">HTMLElement.dir</code> property gets or sets the text writing directionality of the content of the current element. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dir">MDN.</a></p>
+						</aside>
+					</section>
+					<section>
+						<h2>What to look out for</h2>
+						<p>The obvious ones are: the font stack, font sizes and leading (line height).</p>
+						<p>Less obvious are ordered and unordered list markers, italicisation</p>
+					</section>
 				</section>
 
 				<section data-background="#4d7e65">
@@ -359,8 +428,10 @@
 				</section>
 
 
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+				<section data-transition="slide" data-background="#9D6076" data-background-transition="zoom">
 					<h2>Forensics</h2>
+					<h3><a href="https://validator.w3.org/i18n-checker/" target="_blank">validator.w3.org/i18n-checker</a></h3>
+					<p>The <abbr title="World Wide Web Consortium">W3C</abbr> Internationalization Working Group maintains a list of <a target="_blank" href="https://www.w3.org/International/quicktips/doc/checker.en.php">checks</a> run by the Internationalization Checker</p>
 				</section>
 
 
