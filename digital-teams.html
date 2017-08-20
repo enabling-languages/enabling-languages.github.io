@@ -236,16 +236,16 @@
 					<p>Setting the document language on the <code class="codefragment html">html</code> is required to meet WCAG 2.0 Success Criteria 3.1.1. But this may not be possible on an existing website, a hack would be to wrap the unique content in a <code class="codefragment html">div</code> and apply the <code class="codefragment html">lang</code> attribute. But this does not clearly identify the language of the document.</p>
 					<pre><code class="html" data-trim contenteditable>
 &lt;html lang="en-AU"&gt;
-&lt;head&gt;
-&#x22EE;
-&lt;/head&gt;
-&lt;body&gt;
-&#x22EE;
-&lt;div id="translatedContent" lang="din"&gt;
-&#x22EE;
-&lt;/div&gt;
-&#x22EE;
-&lt;/body&gt;
+  &lt;head&gt;
+    &#x22EE;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &#x22EE;
+    &lt;div id="translatedContent" lang="din"&gt;
+      &#x22EE;
+    &lt;/div&gt;
+    &#x22EE;
+  &lt;/body&gt;
 &lt;html&gt;
 					</code></pre>
 					</section>
@@ -255,7 +255,7 @@
 						<p>English terminology may be included within a translation. It is necessary to appropriately markup language when the langauge of text changes. This is a requirement of WCAG 2.0 Success Crteria 3.1.2.</p>
 						<pre><code class="html" data-trim contenteditable>
 &lt;div id="translatedContent" lang="ar" dir="rtl"&gt;
-		&lt;p&gt;the title is &lt;cite dir="rtl"&gt;مدخل إلى C++&amp;lrm;&lt;/cite&gt;&lt;/p&gt;
+  &lt;p&gt;    &lt;/p&gt;
 &lt;/div&gt;
 						</code></pre>
 						<aside class="notes">
@@ -263,8 +263,20 @@
 								<li><a target="_blank" href="https://www.w3.org/International/articles/inline-bidi-markup/">Inline markup and bidirectional text in HTML</a></li>
 								<li><a target="_blank" href="https://www.w3.org/International/questions/qa-html-dir">Structural markup and right-to-left text in HTML</a></li>
 					</section>
-
-
+					<section>
+						<h2>Nesting languages</h2>
+						<p>The value of the <code class="codefragment html">lang</code> attributes applies to both the content of the element and the values of attributes of the element.</p>
+						<pre><code class="html">
+&lt;nav id="languageSelector"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;  &lt;/li&gt;
+	&lt;li&gt;  &lt;/li&gt;
+	&lt;li&gt;  &lt;/li&gt;
+	&lt;li&gt;  &lt;/li&gt;
+  &lt;/ul&gt;
+&gt;&lt;/nav&gt;
+						</code></pre>
+					</section>
 					<section>
 						<h2>Getting it wrong: Traditional Chinese</h2>
 						  <p>維州消費者事務署是維州消費者事務監管機構。本署的目的是幫助維州民眾，讓</p>
