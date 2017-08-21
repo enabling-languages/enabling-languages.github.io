@@ -59,7 +59,7 @@
 				<section>
 					<h2>Context</h2>
 					<p>Internationalisation is about the architecture of a site, in the first instance, then secondly about the markup and styling. It is not about content per se.</p>
-					<p>A small handful of sites tarheting a foreign audience may localise their sites and translate most, if not all, their content.</p>
+					<p>A small handful of sites targeting a foreign audience may localise their sites and translate most, if not all, their content.</p>
 					<p>This is not the norm. Most agencies and departments carefully select languages and content.</p>
 				</section>
 				<section>
@@ -266,15 +266,24 @@
 					<section>
 						<h2>Nesting languages</h2>
 						<p>The value of the <code class="codefragment html">lang</code> attributes applies to both the content of the element and the values of attributes of the element.</p>
+						<p>Assuming you want an English language tooltip for the link, and the <code class="codefragment html">nav</code> element inherits the <code class="codefragment html">lang</code> value <em>en-AU</em>:</p>
 						<pre><code class="html">
 &lt;nav id="languageSelector"&gt;
   &lt;ul&gt;
-    &lt;li&gt;  &lt;/li&gt;
-	&lt;li&gt;  &lt;/li&gt;
-	&lt;li&gt;  &lt;/li&gt;
-	&lt;li&gt;  &lt;/li&gt;
+    &lt;li&gt;&lt;a href="/am" title="Amharic"&gt;
+	  &lt;span class="endonym" lang="am"&gt;አማርኛ&lt;/span&gt;
+	&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/ar" title="Arabic"&gt;
+	  &lt;span class="endonym" lang="ar"&gt;العربية&lt;/span&gt;
+	&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/zh-Hans" title="Chinese (Simplified)"&gt;
+	  &lt;span class="endonym" lang="zh-Hans"&gt;中文（简体）&lt;/span&gt;
+	&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/zh-Hant" title="Chinese (Traditional)"&gt;
+	  &lt;span class="endonym" lang="zh-Hant"&gt;中文（繁體）&lt;/span&gt;
+	&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
-&gt;&lt;/nav&gt;
+&lt;/nav&gt;
 						</code></pre>
 					</section>
 					<section>
@@ -282,7 +291,7 @@
 						  <p>維州消費者事務署是維州消費者事務監管機構。本署的目的是幫助維州民眾，讓</p>
 							<aside class="notes">
 								<ul>
-									<li>Does not meet language tagging requirements of accessibility standards and internationalisation best practice</li>
+									<li>No language tag &ndash; does not meet accessibility srequirements or internationalisation best practice</li>
 									<li>No language specific fonts in font stack</li>
 									<li>Firefox uses Japanese font; Chrome uses Simplified Chinese font</li>
 									<li><strong>Reduced legibility</strong></li>
@@ -300,16 +309,20 @@
 ဘာသာျပန္ဆိုထားေသာ အခ်က္အလက္မ်ား၊ အသံသြင္းႏွင့္ ႐ုပ္ျမင္ အေခြမ်ားကို ကြ်ႏ္ုပ္တို႔တြင္ ထား႐ႇိပါ သည္။&lt;/p&gt;
 </code></pre>
 
-						<!--
-						<p lang="br">ကြ်ႏ္ုပ္တို႔၏ ေပးေငြမ်ားႏွင့္ ဝန္ေဆာင္မႈမ်ားအေၾကာင္းကို သင္ ေလ့လာႏိုင္ရန္
-						ဘာသာျပန္ဆိုထားေသာ အခ်က္အလက္မ်ား၊ အသံသြင္းႏွင့္ ႐ုပ္ျမင္ အေခြမ်ားကို ကြ်ႏ္ုပ္တို႔တြင္ ထား႐ႇိပါ သည္။<p>
-						-->
+						<aside class="notes">
+							<ul>
+								<li>Language tag for Breton</li>
+								<li>Burmese text using Zawgyi psuedo-Unicode encoding.</li>
+								<li>No language specific fonts in font stack</li>
+								<li><strong>Reduced legibility</strong></li>
+							</ul>
+						</aside>
 					</section>
 					<section>
 						<h2>Fun with language tags &#x2026; and fonts</h2>
-						<p><span lang="sr" style="font-style: italic;font-family:Charis SIL;font-feature-settings: 'serb' 1;">бгдпт</span> versus <span lang="ru" style="font-style: italic;font-family:Charis SIL;font-feature-settings: 'serb' 0;">бгдпт</span> versus <span lang="mk" style="font-style: italic;font-family:Charis SIL;font-feature-settings: 'serb' 1;">бгдпт</span></p>
-						<p><span lang="" style="font-family: Padauk;">ကွ့ကလံၤ</span> versus <span lang="ksw" style="font-family: Padauk;">ကွ့ကလံၤ</span>
-						<p><span lang="se" style="font-family: Charis SIL; font-feature-settings: 'Engs' 2, 'cv43' 2;">Ŋŋ</span> versus <span lang="din" style="font-family: Charis SIL; font-feature-settings: 'Engs' 0, 'cv43' 0;">Ŋŋ</span>
+						<p class="fragment"><span lang="sr" style="font-style: italic;font-family:Charis SIL;font-feature-settings: 'serb' 1;">бгдпт</span> versus <span lang="ru" style="font-style: italic;font-family:Charis SIL;font-feature-settings: 'serb' 0;">бгдпт</span> versus <span lang="mk" style="font-style: italic;font-family:Charis SIL;font-feature-settings: 'serb' 1;">бгдпт</span></p>
+						<p class="fragment"><span lang="" style="font-family: Padauk;">ကွ့ကလံၤ</span> versus <span lang="ksw" style="font-family: Padauk;">ကွ့ကလံၤ</span>
+						<p class="fragment"><span lang="se" style="font-family: Charis SIL; font-feature-settings: 'Engs' 2, 'cv43' 2;">Ŋŋ</span> versus <span lang="din" style="font-family: Charis SIL; font-feature-settings: 'Engs' 0, 'cv43' 0;">Ŋŋ</span>
 					</section>
 
 					<aside class="notes">
@@ -329,9 +342,9 @@
 						<h2>Text direction</h2>
 						<p>The <code class="html">dir</code> global attribute indicates the directionality of the element's text. It can have the following values:</p>
 						<ol>
-							<li>ltr &ndash; left to right</li>
-							<li>rtl &ndash; right to left</li>
-							<li>auto</li>
+							<li class="fragment">ltr &ndash; left to right</li>
+							<li class="fragment">rtl &ndash; right to left</li>
+							<li class="fragment">auto</li>
 						</ol>
 
 						<aside class="notes">
@@ -389,6 +402,34 @@
 				</section>
 
 
+
+				<section data-background="#4d7e65">
+					<section data-background="#4d7e65">
+						<h2>Content management systems</h2>
+						<ul>
+							<li>Document level metadata</li>
+							<li>Template and themes:
+								<ul>
+									<li>Dynamic assignment of document language and direction</li>
+									<li>Theme should support most required <abbr title="Latin, Cyrillic and Greek">LCG</abbr> script languages</li>
+									<li>Language specific overrides</li>
+									<li>Web fonts for languages that require it, <abbr title="especially">esp.</abbr> mobile platforms.</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Content management systems &ndash; editing interface</h2>
+							<ul>
+								<li>Source code mode is often useful for adding translated content.</li>
+								<li>Ensure editor filters do not strip lang and dir attributes.</li>
+								<li>Modify editor to allow markup of English language content with a translation.</li>
+								<li>Add mechanism for easily adding <abbr title="bidirectional">bidi</abbr> control characters.</li>
+							</ul>
+					</section>
+				</section>
+
+
 				<section data-background="#4d7e65">
 					<section>
 						<h2>Language specific web typography</h2>
@@ -427,8 +468,90 @@
 					<section>
 						<h2>What to look out for</h2>
 						<p>The obvious ones are: the font stack, font sizes and leading (line height).</p>
-						<p>Less obvious are ordered and unordered list markers, italicisation</p>
+						<p>Less obvious are ordered and unordered list markers, italicisation.</p>
 					</section>
+					<section>
+						<h2>What to look out for &ndash; <abbr title="bidirectional">bidi</abbr></h2>
+						<p>When supporting languages written LTR and RTL, it is neccessary to double-check any CSS property that can contain direction sensitive values. This is espacially important for fully localised sites.</p>
+
+						<p>E.g. background, background-image, background-position, background-position-x, border-bottom-left-radius, border-bottom-right-radius, border-color, border-left, border-left-color, border-left-style, border-left-width, border-radius, border-right, border-right-color, border-right-style, border-right-width, border-style, border-top-left-radius, border-top-right-radius, border-width, box-shadow, clear, cursor, direction, float, left, margin, margin-left, margin-right, padding, padding-left, padding-right, right, text-align, text-shadow, transform, transform-origin, transition</p>
+					</section>
+					<section>
+						<pre><code class="css" data-trim contenteditable>
+/*  Additional counters  */
+@counter-style myanmar-paren {
+  system: override myanmar;
+  prefix: "(";
+  suffix: ")";
+}
+@counter-style hyphen {
+  system: cyclic;
+  symbols: '-';
+}
+
+/*  Bidi support */
+:dir(rtl) {}
+.isRTL {}
+
+/*  Change or unset font for embedded English content  */
+*:not(:lang(en-AU))>span:lang(en-AU) {
+  /* font: unset; */
+  font-family: VIC, Helvetica Neue, Arial, sans-serif;
+  /* Adjust font size if required */
+}
+
+						</code></pre>
+					</section>
+
+					<section>
+						<pre><code class="css" data-trim contenteditable>
+/*  Arabic script languages  */
+:lang(ar), :lang(fa), :lang(prs), :lang(haz), :lang(ps)  {
+    font-family: Scheherazade;
+    font-size: 1.2em;
+}
+ol:lang(ar) {
+    list-style-type: arabic-indic;
+}
+ol:lang(fa), ol:lang(prs), ol:lang(haz), ol:lang(ps) {
+    list-style-type: persian;
+}
+:lang(ur) {
+    font-family: "Urdu Typesetting","Noto Nastaliq Urdu";
+    font-size: 1.4em;
+}
+ol:lang(ur) {
+    list-style-type: urdu;
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<pre><code class="css" data-trim contenteditable>
+/*  Myanmar script languages  */
+:lang(my) {
+    font-family: Padauk, "Noto Sans Myanmar", sans-serif;
+	font-size: 1.2em;
+}
+:lang(ksw) {
+    font-family: "Padauk Sgaw", Padauk, "Noto Sans Myanmar", sans-serif;
+	font-size: 1.2em;
+}
+ol:lang(ksw), ol:lang(my) {
+    list-style-type: myanmar;
+    list-style-type: myanmar-paren;
+}
+ul:lang(ksw), ul:lang(my) {
+    list-style-type: hyphen;
+}
+
+						</code></pre>
+					</section>
+
+				</section>
+
+				<section data-background="#4d7e65">
+					<h2>Audience</h2>
 				</section>
 
 				<section data-background="#4d7e65">
@@ -436,14 +559,52 @@
 				</section>
 
 				<section data-background="#4d7e65">
-					<h2>Quality assurance</h2>
+					<section>
+						<h2>Quality assurance</h2>
+					</section>
+					<section>
+						<h2>Translation</h2>
+						<ul>
+							<li>Translation memories and Computer aided translation</li>
+							<li>Glossaries</li>
+							<li>Check quality of translation. Options:
+								<ul>
+									<li>LSP uses second translator to do QA</li>
+									<li>Alternative LSP is used to do QA</li>
+									<li>Community consultation to evaluate translation</li>
+								</ul>
+							</li>
+							<li>Verify display of translation across multiple browsers and platforms, esp. mobile.
+								<ul>
+									<li>Text rendering</li>
+									<li>Font used</li>
+									<li>Line breaking, etc.</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Technical</h2>
+						<ul>
+							<li>Validate internationalisation</li>
+							<li>Validate HTML and CSS</li>
+							<li>Javascript linters</li>
+						</ul>
+					</section>
+					<section>
+						<h2><a href="https://validator.w3.org/i18n-checker/" target="_blank">validator.w3.org/i18n-checker</a></h2>
+						<p>The <abbr title="World Wide Web Consortium">W3C</abbr> Internationalization Working Group maintains a list of <a target="_blank" href="https://www.w3.org/International/quicktips/doc/checker.en.php">checks</a> run by the Internationalization Checker</p>
+					</section>
 				</section>
 
 
 				<section data-transition="slide" data-background="#9D6076" data-background-transition="zoom">
 					<h2>Forensics</h2>
-					<h3><a href="https://validator.w3.org/i18n-checker/" target="_blank">validator.w3.org/i18n-checker</a></h3>
-					<p>The <abbr title="World Wide Web Consortium">W3C</abbr> Internationalization Working Group maintains a list of <a target="_blank" href="https://www.w3.org/International/quicktips/doc/checker.en.php">checks</a> run by the Internationalization Checker</p>
+					<ol>
+						<li>Burmese sample</li>
+						<li>Chinese sample</li>
+						<li></li>
+					</ol>
 				</section>
 
 
@@ -456,10 +617,51 @@
 
 
 
+				<section>
+						<div id="logo"><img alt="" class="plain" src="assets/el-logo-white-large.png"></div>
+						<p>Andrew Cunningham – andrew@enablinglanguages.com.au</p>
+				</section>
 
 
 
 
+
+
+
+				<section>
+						<h2>Accessibility notes</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>i18n</th>
+									<th>WCAG 2.0</th>
+									<th>Recommendations</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Declare encoding</td>
+									<td><abbr title="definition">defn</abbr> of text content</td>
+									<td>Use Unicode.<br>PDF: use ActualText attributes when required.</td>
+								</tr>
+								<tr>
+									<td>Declare document language</td>
+									<td>SC 3.1.1 &ndash; language of page</td>
+									<td>Use valid and correct BCP47 tag.<br>MS Word: Set default editing language.</td>
+								</tr>
+								<tr>
+									<td>Identify change in language</td>
+									<td>SC 3.1.2 &ndash; language of parts</td>
+									<td>Use valid and correct BCP47 tag.<br>MS Word: set proofing languages</td>
+								</tr>
+								<tr>
+									<td><abbr title="Bidirectional">Bidi</abbr> support</td>
+									<td> - </td>
+									<td>Use appropriate techniques available when editing content.</td>
+								</tr>
+							</tbody>
+						</table>
+				</section>
 
 
 
