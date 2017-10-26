@@ -1,0 +1,20 @@
+{
+  "options" : {
+    "device" : "any",
+    "keyboardBaseUri" : "http://your-host-here/keyboard-path/",
+    "fontBaseUri" : "http://your-host-here/font-path/"
+  },
+  "keyboard" : {
+    "id" : "el_elfdalian",
+    "name" : "Elfdalian",
+    "filename" : "el_elfdalian-0.5.2.js",
+    "version" : "0.5.2",
+    "lastModified" : "2017-10-26T04:18:30+00:00",
+    "languages" : [
+      {
+        "id" : "ovd",
+        "name" : "ovd"
+      }
+      ]
+  }
+}
