@@ -13,42 +13,42 @@
  */
 @font-face {
   font-family: "NS Afrique";
-  src: local('NS Afrique'), local('NSAfrique-Regular')
+  src: local('NS Afrique Regular'), local('NSAfrique-Regular'),
     url("/fonts/NSAfrique-Regular.ttf") format("truetype"),
     url("/fonts/NSAfrique-Regular.woff") format("woff"),
     url("/fonts/NSAfrique-Regular.woff2") format("woff2");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NS Afrique";
-  src: local('NS Afrique'), local('NSAfrique-Italic')
+  src: local('NS Afrique Italic), local('NSAfrique-Italic'),
     url("/fonts/NSAfrique-Italic.ttf") format("truetype"),
-    url("/fonts/NSAfrique-Italic.woff") format("woff"), 
-    url("/fonts/NSAfrique-Italic.woff2") format("woff2"); 
-  font-weight: normal;
+    url("/fonts/NSAfrique-Italic.woff") format("woff"),
+    url("/fonts/NSAfrique-Italic.woff2") format("woff2");
+  font-weight: 400l;
   font-style: italic;
 }
 
 @font-face {
   font-family: "NS Afrique";
-  src: local('NS Afrique'), local('NSAfrique-Bold')
+  src: local('NS Afrique Bold'), local('NSAfrique-Bold'),
     url("/fonts/NSAfrique-Bold.ttf") format("truetype"),
-    url("/fonts/NSAfrique-Bold.woff") format("woff"), 
+    url("/fonts/NSAfrique-Bold.woff") format("woff"),
     url("/fonts/NSAfrique-Bold.woff2") format("woff2");
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "NS Afrique";
-  src: local('NS Afrique'), local('NSAfrique-BoldItalic')
-    url("/fonts/NSAfrique-BoldItalic.ttf") format("truetype"), 
-    url("/fonts/NSAfrique-BoldItalic.woff") format("woff"), 
-    url("/fonts/NSAfrique-BoldItalic.woff2") format("woff2"); 
-  font-weight: normal;
-  font-style: normal;
+  src: local('NS Afrique Bo;d Italic'), local('NSAfrique-BoldItalic'),
+    url("/fonts/NSAfrique-BoldItalic.ttf") format("truetype"),
+    url("/fonts/NSAfrique-BoldItalic.woff") format("woff"),
+    url("/fonts/NSAfrique-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
 }
 :root {
   --blue: #446E9B;
