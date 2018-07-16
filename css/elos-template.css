@@ -12,3 +12,12 @@ html, body * {
 .readmore {
     text-align: right;
 }
+
+.centred {
+  text-align: center;
+}
+
+.kbdLayout {
+  width: 100%;
+  max-width: 720px;
+}
