@@ -2,6 +2,8 @@ html, body * {
   font-feature-settings: "litr" 0, "ss01" 1;
 }
 
+body { padding-top: 70px; }
+
 .card.elos {
     background-color: #446e9b;
     text-align:center;
