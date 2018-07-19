@@ -23,3 +23,7 @@ body { padding-top: 70px; }
   width: 100%;
   max-width: 720px;
 }
+
+.sample {
+  font-size: 2.0rem;
+}
